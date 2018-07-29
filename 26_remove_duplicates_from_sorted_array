@@ -1,0 +1,13 @@
+###curious method
+class Solution(object):
+    def removeDuplicates(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        dummy = 0
+        for i in range(len(nums)-1):
+            if nums[i-dummy] == nums[i-dummy+1]:
+                nums.pop(i-dummy+1)
+                dummy += 1
+        return nums
