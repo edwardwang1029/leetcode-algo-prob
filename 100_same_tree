@@ -14,10 +14,7 @@ class Solution(object):
         """
         if p == None and q == None:
             return True
-        root = TreeNode(0)
-        root.left = p
-        root.right = q
-        stack = [[root.left, root.right]]
+        stack = [[p, q]]
         while len(stack) > 0:
             pair = stack.pop(0)
             left = pair[0]
