@@ -29,9 +29,7 @@ class Solution(object):
                     return False
             except:
                 return False
-            if left.val == right.val:
-                if left.left or right.left:
-                    stack.insert(0, [left.left, right.left])
-                if left.right or right.right:
-                    stack.insert(0, [left.right, right.right])
+            else:
+                stack.insert(0, [left.left, right.left])
+                stack.insert(0, [left.right, right.right])
         return True
