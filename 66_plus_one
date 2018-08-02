@@ -7,3 +7,19 @@ class Solution(object):
         dig = ''.join(map(str, digits))
         result = int(dig) + 1
         return map(int, list(str(result)))
+
+class Solution(object):
+    def plusOne(self, digits):
+        """
+        :type digits: List[int]
+        :rtype: List[int]
+        """
+        carry = 1
+        list = digits
+        len_list = len(list)
+        for i in range((len_list-1), -1, -1):
+            total = list[i] + carry
+            carry, list[i] = divmod(total, 10)
+        if carry == 1:
+            list = [1] + list
+        return list
