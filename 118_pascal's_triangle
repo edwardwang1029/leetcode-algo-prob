@@ -7,11 +7,23 @@ class Solution(object):
         root = []
         if numRows == 0:
             return root
-        n = 1
-        while n >= 1 and n <= numRows:
+        for n in range(1, numRows+1):
             root.append([1] * n)
             for i in range(1, len(root[n-1])-1):
                 root[n-1][i] = root[n-2][i-1] + root[n-2][i]
-            n += 1
         return root            
             
+class Solution(object):
+    def generate(self, numRows):
+        """
+        :type numRows: int
+        :rtype: List[List[int]]
+        """
+        root = []
+        if numRows == 0:
+            return root
+        if numRows >= 1:
+            root = [[1]]
+        for n in range(1, numRows):
+            root.append(map(lambda x, y: x+y, root[-1]+[0], [0]+root[-1]))
+        return root
