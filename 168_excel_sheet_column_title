@@ -1,0 +1,13 @@
+class Solution:
+    def convertToTitle(self, n):
+        """
+        :type n: int
+        :rtype: str
+        """
+        letters = [chr(i) for i in range(ord('A'), ord('Z')+1)]
+        result = []
+        while n > 0:
+            result.append(letters[(n-1)%26])
+            n = (n - 1) // 26
+        result.reverse()
+        return ''.join(result)
