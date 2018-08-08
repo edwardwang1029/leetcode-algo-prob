@@ -8,3 +8,15 @@ class Solution:
         for x in s:
             res=res*26+(ord(x)-64)
         return res
+
+class Solution:
+    def titleToNumber(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        s = s[::-1]
+        result = 0
+        for power, num in enumerate(s):
+            result = result + (ord(num) - ord('A') + 1) * 26 ** power
+        return result
