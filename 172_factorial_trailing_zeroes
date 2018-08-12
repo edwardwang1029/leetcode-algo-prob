@@ -1,0 +1,12 @@
+class Solution:
+    def trailingZeroes(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        count = 0
+        pow_five = 5
+        while pow_five <= n:
+            count += n // pow_five
+            pow_five = pow_five * 5
+        return count
