@@ -1,0 +1,7 @@
+class Solution:
+    # @param n, an integer
+    # @return an integer
+    def reverseBits(self, n):
+        bit = "{0:032b}".format(n)
+        bit = bit[::-1]
+        return int(bit, 2)
