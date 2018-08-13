@@ -1,4 +1,19 @@
-# Write your MySQL query statement below
+Courses:
++---------+------------+
+| student | class      |
++---------+------------+
+| A       | Math       |
+| B       | English    |
+| C       | Math       |
+| D       | Biology    |
+| E       | Math       |
+| F       | Computer   |
+| G       | Math       |
+| H       | Math       |
+| I       | Math       |
++---------+------------+
+
+###
 SELECT class 
 FROM
 (SELECT
@@ -7,4 +22,13 @@ FROM
     courses
 GROUP BY class) as count_table
 WHERE nums >= 5
+;
+
+###
+SELECT
+    class
+FROM
+    courses
+GROUP BY class
+HAVING COUNT(DISTINCT student) >= 5
 ;
