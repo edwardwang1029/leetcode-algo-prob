@@ -1,0 +1,10 @@
+# Write your MySQL query statement below
+SELECT class 
+FROM
+(SELECT
+    class, COUNT(DISTINCT student) as nums
+FROM
+    courses
+GROUP BY class) as count_table
+WHERE nums >= 5
+;
