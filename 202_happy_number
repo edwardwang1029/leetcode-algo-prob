@@ -1,0 +1,14 @@
+class Solution:
+    def isHappy(self, n):
+        """
+        :type n: int
+        :rtype: bool
+        """
+        dup_set = set()
+        while n != 1:
+            n = sum(list(int(x) ** 2 for x in str(n)))
+            if n in dup_set:
+                return False
+            else:
+                dup_set.add(n)
+        return True
