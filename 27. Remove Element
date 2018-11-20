@@ -1,0 +1,12 @@
+class Solution:
+    def removeElement(self, nums, val):
+        """
+        :type nums: List[int]
+        :type val: int
+        :rtype: int
+        """
+        dummy = 0
+        for i in range(len(nums)):
+            if nums[i-dummy] == val:
+                nums.pop(i-dummy)
+                dummy += 1
