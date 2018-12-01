@@ -23,3 +23,17 @@ class Solution(object):
             num[i] = num[i - 2] + num[i - 1]
         return num[n]
             
+class Solution:
+    def climbStairs(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        num_array = [1] * (n+1)
+        for i in range(1, len(num_array), 1):
+            total = 0
+            for j in [1, 2]:
+                if i - j >= 0:
+                    total += num_array[i-j]
+            num_array[i] = total
+        return num_array[-1]
