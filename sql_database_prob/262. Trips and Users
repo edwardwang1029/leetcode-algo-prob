@@ -1,0 +1,5 @@
+select Trips.Request_at Day,
+round(sum(case when Trips.Status like 'cancelled%' then 1 else 0 end) / count(*), 2) as 'Cancellation Rate'
+from Trips join Users on Trips.Client_Id = Users.Users_id and Users.Banned = 'No'
+where Trips.Request_at between '2013-10-01' and '2013-10-03'
+group by Trips.Request_at
