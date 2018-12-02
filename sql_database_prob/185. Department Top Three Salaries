@@ -1,0 +1,11 @@
+# join = inner join
+
+select Department.Name Department, e1.Name Employee, e1.Salary
+from Employee e1 inner join Department on e1.DepartmentId = Department.Id
+where 
+(
+    select count(distinct e2.Salary)
+    from Employee e2
+    where e2.Salary > e1.Salary and e1.DepartmentId = e2.DepartmentId
+) < 3
+;
