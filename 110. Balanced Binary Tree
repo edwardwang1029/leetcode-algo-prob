@@ -22,3 +22,19 @@ class Solution(object):
         left = self.get_depth(node.left)
         right = self.get_depth(node.right)
         return max(left, right) + 1
+
+class Solution(object):
+    def isBalanced(self, root):
+        if not root: return True
+        self.flag = False
+        self.getHeight(root)
+        return not self.flag
+
+    def getHeight(self, root):
+        if not root: return 0
+        left = self.getHeight(root.left)
+        right = self.getHeight(root.right)
+
+        if abs(left - right) > 1 or self.flag:
+            self.flag = True
+        return max(left, right) + 1
