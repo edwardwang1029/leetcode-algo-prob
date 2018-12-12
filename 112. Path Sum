@@ -17,3 +17,15 @@ class Solution(object):
         left = self.count_leg(node.left, sum-node.val)
         right = self.count_leg(node.right, sum-node.val)
         return left or right
+
+
+class Solution(object):
+    def __init__(self):
+        self.flag = False
+        
+    def hasPathSum(self, root, sum):
+        if not root: return False
+        if not root.left and not root.right and sum - root.val == 0: self.flag = True
+        self.hasPathSum(root.left, sum - root.val)
+        self.hasPathSum(root.right, sum - root.val)
+        return self.flag
