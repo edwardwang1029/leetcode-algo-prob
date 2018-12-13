@@ -12,18 +12,16 @@ class Solution(object):
             for i in range(1, len(root[n-1])-1):
                 root[n-1][i] = root[n-2][i-1] + root[n-2][i]
         return root            
-            
-class Solution(object):
+
+class Solution:
     def generate(self, numRows):
         """
         :type numRows: int
         :rtype: List[List[int]]
         """
-        root = []
         if numRows == 0:
-            return root
-        if numRows >= 1:
-            root = [[1]]
-        for n in range(1, numRows):
-            root.append(map(lambda x, y: x+y, root[-1]+[0], [0]+root[-1]))
-        return root
+            return []
+        tri = [[1]]
+        for i in range(1, numRows):
+            tri.append(list(map(lambda x, y: x + y, tri[-1] + [0], [0] + tri[-1])))
+        return tri
