@@ -6,6 +6,10 @@ class Solution:
         prime_list[0:2] = [False] * 2
         for i in range(2, int(n ** 0.5)+1):
             if prime_list[i]:
+            
+                ###prime_list[i**2:n:i] = [False] * len(prime_list[i**2:n:i])
+                
                 for j in range(i**2, n, i):
                     prime_list[j] = False
+                    
         return sum(prime_list)
