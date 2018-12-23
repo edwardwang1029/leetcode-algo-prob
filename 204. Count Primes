@@ -1,0 +1,11 @@
+class Solution:
+    def countPrimes(self, n):
+        if n <= 2:
+            return 0
+        prime_list = [True] * n
+        prime_list[0:2] = [False] * 2
+        for i in range(2, int(n ** 0.5)+1):
+            if prime_list[i]:
+                for j in range(i**2, n, i):
+                    prime_list[j] = False
+        return sum(prime_list)
