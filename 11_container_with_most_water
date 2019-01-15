@@ -11,3 +11,40 @@ class Solution(object):
                 if temp >= volume:
                     volume = temp
         return volume
+
+class Solution:
+    def maxArea(self, height):
+        """
+        :type height: List[int]
+        :rtype: int
+        """
+        l = 0
+        r = len(height) - 1
+        res = 0
+        width = len(height) - 1
+        for w in range(width, 0, -1):
+            if height[l] < height[r]:
+                res = max(res, height[l] * (r - l))
+                l += 1
+            else:
+                res = max(res, height[r] * (r - l))
+                r -= 1
+        return res
+        
+class Solution:
+    def maxArea(self, height):
+        """
+        :type height: List[int]
+        :rtype: int
+        """
+        pointer1 = 0
+        pointer2 = len(height) - 1
+        res = 0
+        while pointer1 <= pointer2:
+            temp = min(height[pointer1], height[pointer2]) * (pointer2 - pointer1)
+            res = max(temp, res)
+            if height[pointer1] <= height[pointer2]:
+                pointer1 += 1
+            else:
+                pointer2 -= 1
+        return res
