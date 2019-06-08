@@ -4,3 +4,22 @@ class Solution:
         b = collections.Counter(nums2)
         c = list((a & b).elements())
         return c
+
+class Solution:
+    def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        sn1, sn2 = map(sorted, [nums1, nums2])
+        pt1 = pt2 = 0
+        res = []
+        while True:
+            try:
+                if sn1[pt1] > sn2[pt2]:
+                    pt2 += 1
+                elif sn1[pt1] < sn2[pt2]:
+                    pt1 += 1
+                else:
+                    res.append(sn1[pt1])
+                    pt1 += 1
+                    pt2 += 1
+            except IndexError:
+                break;
+        return res
