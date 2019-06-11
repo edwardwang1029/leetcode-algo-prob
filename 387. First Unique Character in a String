@@ -10,6 +10,11 @@ class Solution:
                 indexs.append(s.index(i))
         return min(indexs) if len(indexs) > 0 else -1
 
+class Solution:
+    def firstUniqChar(self, s: str) -> int:
+        aaa = [s.index(i) for i in s if s.count(i) == 1]
+        return min(aaa) if len(aaa) > 0 else -1
+
 
 Java:
 
