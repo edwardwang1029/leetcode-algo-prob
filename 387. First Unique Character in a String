@@ -1,0 +1,9 @@
+class Solution:
+    def firstUniqChar(self, s: str) -> int:
+        letters = 'abcdefghijklmnopqrstuvwxyz'
+        indexs = []
+        for i in letters:
+            num = s.count(i)
+            if num == 1:
+                indexs.append(s.index(i))
+        return min(indexs) if len(indexs) > 0 else -1
