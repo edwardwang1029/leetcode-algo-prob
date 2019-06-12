@@ -1,0 +1,10 @@
+Python:
+
+class Solution:
+    def fizzBuzz(self, n: int) -> List[str]:
+        nl = [i for i in range(1, n+1)]
+        nl = list(map(str, nl))
+        nl[2::3] = ["Fizz"] * len(nl[2::3])
+        nl[4::5] = ["Buzz"] * len(nl[4::5])
+        nl[14::15] = ["FizzBuzz"] * len(nl[14::15])
+        return nl
