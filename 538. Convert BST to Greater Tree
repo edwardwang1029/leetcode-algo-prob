@@ -1,0 +1,18 @@
+class Solution:
+    summ = 0
+    def convertBST(self, root):
+        """
+        :type root: TreeNode
+        :rtype: TreeNode
+        """
+        stack = [(root, 0)]
+        while stack:
+            node, visited = stack.pop()
+            if node is None:
+                continue
+            if visited == 0:
+                stack.extend([(node.left, 0), (node, 1), (node.right, 0)])
+            else:
+                self.summ += node.val
+                node.val = self.summ
+        return root
