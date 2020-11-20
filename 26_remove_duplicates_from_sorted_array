@@ -19,3 +19,7 @@ class Solution(object):
         """
         nums[:] = sorted(set(nums))
         return len(nums)
+
+nums[:] = sorted(set(nums))
+
+https://stackoverflow.com/questions/32448414/what-does-colon-at-assignment-for-list-do-in-python
